@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 
@@ -9,6 +9,7 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
+    userName: ""
   };
 
   handleChange = (event) => {
@@ -53,6 +54,15 @@ class FormSignup extends Component {
           type="password"
           id="password"
           name="password"
+        />
+
+<label htmlFor="password">Usernamee</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.userName}
+          type="text"
+          id="userName"
+          name="userName"
         />
         <button>Submit</button>
       </form>

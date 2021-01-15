@@ -13,7 +13,7 @@ function errorHandler(error) {
   throw error;
 }
 
-export default {
+const apiHandler = {
   service,
 
   signup(userInfo) {
@@ -50,4 +50,21 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  updatePicture(data) {
+    return service
+      .patch("/users/me", data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+addPicture(data){
+  return service
+  .post ("api/picture", data)
+  .then( (res)=>res.data)
+  .catch(errorHandler);
+},
+
 };
+
+export default apiHandler;
