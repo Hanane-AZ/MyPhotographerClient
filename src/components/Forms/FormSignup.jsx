@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { UserContext } from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/Signin.css";
+import Title from "../../components/Title";
 
 class FormSignup extends Component {
   static contextType = UserContext;
@@ -9,7 +11,7 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
-    userName: ""
+    userName: "",
   };
 
   handleChange = (event) => {
@@ -38,34 +40,54 @@ class FormSignup extends Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
-        />
-
-<label htmlFor="password">Usernamee</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.userName}
-          type="text"
-          id="userName"
-          name="userName"
-        />
-        <button>Submit</button>
-      </form>
+      <div>
+        <Title />
+        <div className="form-signin">
+          <div className="form-sign">
+            <div className="div-sign">
+              <h1>Sign up </h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className="signin-container">
+                  <label htmlFor="email"></label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.email}
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder=" email"
+                  />
+                </div>
+                <div className="signin-container">
+                  <label htmlFor="password"></label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.password}
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder=" password"
+                  />
+                </div>
+                <div className="signin-container">
+                  <label htmlFor="password"></label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.userName}
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder=" userName"
+                  />
+                </div>
+                <div className="signin-container">
+                  <button className="btn-signin">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

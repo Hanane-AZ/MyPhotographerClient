@@ -44,27 +44,40 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getItems() {
+  getAllPictures() {
     return service
-      .get("/api/items")
+      .get("/api/picture/home")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updatePicture(data) {
+  getUserPictures() {
     return service
-      .patch("/users/me", data)
+      .get("/api/picture/myphotos")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-addPicture(data){
-  return service
-  .post ("api/picture", data)
-  .then( (res)=>res.data)
-  .catch(errorHandler);
-},
+  updatePicture(pictureId, data) {
+    return service
+      .patch(`/api/picture/${pictureId}`, data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
+  addPicture(data) {
+    return service
+      .post("/api/picture", data)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  removePicture(pictureId) {
+    return service
+      .delete(`/api/picture/${pictureId}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
 
 export default apiHandler;

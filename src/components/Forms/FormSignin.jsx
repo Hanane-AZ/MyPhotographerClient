@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import Title from "../../components/Title";
 import { UserContext } from "../Auth/UserContext";
 import { withRouter, Redirect } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/Signin.css";
+import "../../styles/global.css";
 
 class FormSignin extends Component {
   static contextType = UserContext;
@@ -39,13 +42,43 @@ class FormSignin extends Component {
     }
 
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
+      <div>
+        <Title />
+        <div className="form-signin">
+          <div className="form-sign">
+            <div className="div-sign">
+              <h1>Sign in </h1>
+              <form
+                className="sign-style"
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+              >
+                <div className="signin-container">
+                  <label htmlFor="email"></label>
+                  <input
+                    placeholder=" email"
+                    type="email"
+                    id="email"
+                    name="email"
+                  />
+                </div>
+                <div className="signin-container">
+                  <label htmlFor="password"></label>
+                  <input
+                    placeholder="password"
+                    type="password"
+                    id="password"
+                    name="password"
+                  />
+                </div>
+                <div className="signin-container">
+                  <button className="btn-signin">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -1,10 +1,19 @@
 .NavMain {
-  background-color: transparent;
-  color: rgb(57, 57, 57);
+  color: rgb(194, 39, 39);
   display: flex;
   align-items: center;
-  padding: 20px;
   height: 70px;
+  position: fixed;
+  bottom: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  justify-content: center;
+}
+
+.NavMain ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .NavMain .nav-list {
@@ -12,6 +21,22 @@
   display: flex;
 }
 
-.NavMain .nav-list li:not(:last-child) {
-  margin-right: 20px;
+.NavMain .nav-list li {
+  margin-right: 80px;
+}
+
+.home {
+  height: 20px;
+  width: 20px;
+}
+
+.nav {
+  height: 20px;
+  width: 20px;
+}
+
+.DisplayNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
